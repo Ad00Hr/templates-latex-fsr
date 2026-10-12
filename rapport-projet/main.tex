@@ -1,0 +1,260 @@
+\documentclass{rapportFSR}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{minted}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\usepackage{pifont}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}   % Pour des lignes horizontales de qualité professionnelle
+\usepackage{tabularx}   % Pour un tableau à largeur fixe
+\usepackage{graphicx}   % Si vous souhaitez ajouter des icônes (optionnel)
+\usepackage{colortbl}
+\setlength{\parindent}{0pt} % Supprime l'alinéa pour tout le document
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+% Définition de couleurs modernes (Style Nord/VS Code)
+\definecolor{pygreen}{RGB}{46, 139, 87}
+\definecolor{pyblue}{RGB}{0, 112, 192}
+\definecolor{pyred}{RGB}{200, 40, 40}
+\definecolor{pypurple}{RGB}{128, 0, 128}
+\definecolor{backcolour}{RGB}{248, 248, 248}
+\definecolor{graynumbers}{RGB}{128, 128, 128}
+
+\lstset{
+    language=Python,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{pygreen}\itshape,
+    keywordstyle=\color{pyblue}\bfseries,
+    numberstyle=\tiny\color{graynumbers},
+    stringstyle=\color{pyred},
+    basicstyle=\ttfamily\small,
+    %
+    % Gestion des accents et caractères spéciaux (essentiel pour les rapports en français)
+    extendedchars=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1 {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1 {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1 {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1 {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{\textquestiondown}}1 {¡}{{\textexclamdown}}1,
+    %
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    showspaces=false,
+    showtabs=false,
+    numbers=left,                    
+    numbersep=10pt,                  
+    frame=lines, % Lignes en haut et en bas seulement pour un look plus moderne
+    rulecolor=\color{black!20},
+    captionpos=b, % Légende en bas
+    keepspaces=true,                 
+    tabsize=4
+}
+
+\definecolor{lightblue}{RGB}{220,235,250}
+
+
+\newtcolorbox{questionbox}{
+colback=lightblue,
+colframe=blue,
+boxrule=0.8pt,
+arc=3mm,
+left=6pt,
+right=6pt,
+top=6pt,
+bottom=6pt
+}
+
+
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95} 
+
+\title{Rapport FSR - Template}
+
+\begin{document}
+
+%------------------ Informations du projet (à remplir) ------------------
+\titre{Titre du projet sur une ou deux lignes} 
+\sujet{Rapport de projet} 
+\enseignant{Pr. Prénom \textsc{NOM}} 
+\eleves{Prénom \textsc{NOM} \\Prénom \textsc{NOM}
+} 
+
+
+\fairemarges
+\fairepagedegarde
+\tabledematieres
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\section*{Glossaire}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Terme} & \textbf{Définition} \\
+\hline
+Terme 1 & Définition du terme. \\
+\hline
+Terme 2 & Définition du terme. \\
+\hline
+Terme 3 & Définition du terme. \\
+\hline
+Terme 4 & Définition du terme. \\
+\hline
+\end{tabular}
+\end{table}
+
+
+ \begin{center}
+     \href{https://github.com/}{\color{blue}Lien du projet en GitHub}
+ \end{center}
+
+
+\newpage
+
+
+
+\section{Contexte Général et Problématique}
+\subsection{Contexte du projet}
+Présentez le domaine du projet et le cadre dans lequel il s’inscrit.
+
+Le contexte technique repose sur trois piliers :
+
+\begin{itemize}[leftmargin=*,label=$\bullet$]
+    \item \textbf{Pilier 1 :} Description.
+    \item \textbf{Pilier 2 :} Description.
+    \item \textbf{Pilier 3 :} Description.
+\end{itemize}
+
+\subsection{Problématique}
+Exposez les problèmes que le projet cherche à résoudre :
+\begin{itemize}[leftmargin=*, label=$\bullet$]
+    \item \textbf{Problème 1 :} Description.
+    \item \textbf{Problème 2 :} Description.
+    \item \textbf{Problème 3 :} Description.
+\end{itemize}
+
+\subsection{Objectifs du projet}
+Décrivez l’objectif principal du projet et les objectifs secondaires.
+
+% --- Chapitre 2 ---
+\section{État de l'Art et Étude Théorique}
+\subsection{Notion ou technologie 1}
+Définition et rôle dans le projet \cite{ref1}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{capture.png}
+    \caption{Titre de la figure}
+    \label{fig:notion1}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+Élément & Rôle dans le projet \\
+\midrule
+Élément 1 & Rôle \\
+Élément 2 & Rôle \\
+Élément 3 & Rôle \\
+\bottomrule
+\end{tabular}
+\caption{Titre du tableau}
+\end{table}
+
+\subsubsection{Sous-notion}
+
+Explication détaillée.
+
+\subsection{Notion ou technologie 2}
+Définition et rôle dans le projet.
+
+% --- Chapitre 3 ---
+\section{Conception et Architecture Technique}
+Présentez la phase de conception de la solution.
+
+\subsection{Architecture de la solution}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{architecture.png}
+    \caption{Architecture de la solution}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection{Configuration}
+L’extrait suivant présente la configuration utilisée :
+
+\begin{lstlisting}[language=Python, caption={Extrait de code}]
+# Votre code ici
+def main():
+    print("Rapport FSR")
+\end{lstlisting}
+
+Commentez l’extrait de code.
+
+% --- Chapitre 4 ---
+\section{Réalisation Pratique et Tests}
+\subsection{Déploiement}
+
+\begin{lstlisting}[language=bash, caption={Commande de déploiement}]
+commande --option
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{capture.png}
+    \caption{Titre de la capture}
+    \label{fig:deploiement}
+\end{figure}
+
+\subsection{Tests et validation}
+Décrivez les tests réalisés et leurs résultats.
+
+% --- Chapitre 5 ---
+\section{Analyse Comparative et Bilan}
+
+\subsection{Comparaison des approches}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|p{5cm}|p{5cm}|}
+\hline
+\textbf{Indicateur} & \textbf{Approche classique} & \textbf{Approche du projet} \\ \hline
+Indicateur 1 & Valeur & Valeur \\ \hline
+Indicateur 2 & Valeur & Valeur \\ \hline
+Indicateur 3 & Valeur & Valeur \\ \hline
+\end{tabular}
+\caption{Comparaison des approches}
+\end{table}
+
+\subsection{Bilan Technique}
+
+Résumez les apports du projet.
+
+\subsection{Conclusion et Perspectives}
+
+Concluez et présentez les perspectives.
+\newpage
+
+
+\begin{thebibliography}{9}
+
+\bibitem{ref1}
+Auteur, \emph{Titre du document}, année.  
+\url{https://exemple.com}
+
+\bibitem{ref2}
+Auteur, \emph{Titre du document}, année.  
+\url{https://exemple.com}
+
+\end{thebibliography}
+
+\end{document}
